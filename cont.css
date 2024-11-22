@@ -1,50 +1,126 @@
-/* Estilo básico */
+/* Estilos generales */
 body {
-    font-family: 'Montserrat', sans-serif; color: #333; margin: 0; padding: 0; text-align: center;
-    background-color: black; color: white;
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(255, 253, 253);
+    color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
-/* Sección de foto */
+/* Estilos para el encabezado */
+header {
+    background-color: #000; /* Fondo negro */
+    display: flex; /* Utiliza flexbox */
+    justify-content: space-between; /* Alinea los elementos al inicio y al final */
+    align-items: center; /* Centra verticalmente los elementos */
+    padding: 20px;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+}
+
+header nav a {
+    color: white; /* Color blanco para los enlaces */
+    text-decoration: none; /* Sin subrayado */
+    margin: 0 10px;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para las secciones horizontales */
+.sections-container {
+    display: flex;
+    justify-content: space-around; /* Distribuye las secciones uniformemente */
+    align-items: center; /* Centra verticalmente las secciones */
+    padding: 50px 20px;
+    gap: 20px;
+}
+
 .photo-section img {
-    width: 25px; height: auto; border-radius: 50%; margin: 20px auto; display: block;
+    width: 300px; /* Ajusta el ancho deseado */
+    height: auto; /* Igual que el ancho para hacerlo cuadrado */
+    object-fit: cover; /* Asegura que la imagen se ajuste al cuadro */
+    border-radius: 10px; /* Opcional: esquinas ligeramente redondeadas */
+    margin: 20px auto;
+    display: block;
 }
 
-/* Sección de "Sobre mí" */
-.about-section {
-    text-align: center; padding: 50px; background-color: #000000; color: #fff;
+.about-section, .contact-section {
+    text-align: left; /* Alineación del texto a la izquierda */
+    max-width: 300px; /* Limita el ancho de las secciones */
 }
 
-/* Sección de "Contacto" */
-.contact-section {
-    text-align: center; padding: 50px; background-color: #000000; color: #fff;
+.about-section h1, .contact-section h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
 
-.contact-container {
-    max-width: 600px; margin: 0 auto; padding: 20px; background-color: #000000; border-radius: 10px;
+/* Estilo para los enlaces en la sección de contacto */
+.contact-container a {
+    color: rgb(0, 0, 0); /* Color blanco */
+    text-decoration: none;
 }
 
-.contact-info p {
-    margin: 15px 0;
+.contact-container a:hover {
+    text-decoration: underline;
 }
 
-.contact-info a.email-link {
-    color: #ffffff; text-decoration: none;
+/* Menú hamburguesa (oculto en pantallas grandes) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
 }
 
-.contact-info a.email-link:hover {
-    color: #d1d1d1;
+.menu-toggle div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
 }
 
-/* Media Query para dispositivos móviles */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: black;
+    padding: 10px;
+    border-radius: 8px;
+    flex-direction: column;
+}
+
+.mobile-menu a {
+    color: white;
+    margin: 5px 0;
+    text-decoration: none;
+}
+
+/* Responsividad */
 @media (max-width: 768px) {
-    .photo-section img { width: 150px; }
-    .about-section, .contact-section { padding: 30px; }
-    .contact-container { padding: 15px; width: 90%; }
-    h1 { font-size: 2em; }
-}
+    .sections-container {
+        flex-direction: column; /* Cambia a diseño vertical en pantallas pequeñas */
+    }
 
-/* Media Query para pantallas muy pequeñas (teléfonos) */
-@media (max-width: 480px) {
-    h1 { font-size: 1.5em; }
-    .contact-info p { font-size: 1em; margin: 10px 0; }
+    .about-section, .contact-section {
+        text-align: center;
+        max-width: none; /* Permite que ocupen todo el ancho disponible */
+    }
+
+    header nav {
+        display: none; /* Ocultar menú estándar */
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .mobile-menu.active {
+        display: flex;
+    }
 }

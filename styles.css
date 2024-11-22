@@ -1,22 +1,105 @@
 /* Estilos generales */
 body {
     font-family: 'Montserrat', sans-serif; /* Tipografía Montserrat para toda la web */
-}
-
-
-body {
     background-color: black; /* Establece el fondo negro */
     color: white; /* Cambia el color del texto a blanco para mayor contraste */
 }
-
-
-header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
+/* Contenedor de la galería */
+.gallery {
+    display: grid; /* Activar el diseño grid */
+    gap: 10px; /* Espacio entre las imágenes */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Configura columnas flexibles */
+    justify-content: center; /* Centrar la galería */
     padding: 20px;
+    background-color: #fffafa; /* Fondo negro */
 }
 
+/* Imágenes dentro del grid */
+.gallery img {
+    width: 100%; /* Ocupa todo el ancho de la celda */
+    height: auto; /* Mantiene la proporción */
+    object-fit: cover; /* Ajusta las imágenes */
+    border-radius: 0px; /* Bordes redondeados */
+    transition: transform 0.3s, box-shadow 0.3s; /* Efectos al pasar el cursor */
+}
+
+
+
+/* Efecto al pasar el cursor sobre la imagen */
+.gallery img:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5); /* Sombra elegante */
+}
+
+
+/* Estilos para el encabezado */
+header {
+    background-color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    color: #fff;
+}
+
+/* Logotipo */
+.logo {
+    width: 200px;
+    height: auto;
+}
+
+/* Navegación (escritorio) */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* Menú hamburguesa (oculto en pantallas grandes) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+/* Menú desplegable móvil */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: black;
+    padding: 10px;
+    border-radius: 8px;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-menu a {
+    margin: 5px 0;
+    color: white;
+    text-decoration: none;
+}
+
+/* Mostrar menú móvil cuando está activo */
+.mobile-menu.active {
+    display: flex;
+}
+
+/* Sección */
 section {
     padding: 20px;
 }
@@ -32,8 +115,7 @@ section {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 .modal-content {
@@ -59,119 +141,22 @@ section {
     text-decoration: none;
     cursor: pointer;
 }
-/* Estilos de la galería */
-.photo-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 10px;
-}
 
-.gallery-image {
-    width: 100%;
-    height: auto;
-    cursor: pointer;
-}
+/* Estilo responsivo */
+@media (max-width: 768px) {
+    nav {
+        display: none; /* Ocultar navegación en pantallas pequeñas */
+    }
 
-.horizontal-photo-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 10px;
-}
+    .menu-toggle {
+        display: flex; /* Mostrar menú hamburguesa */
+    }
 
-.horizontal-gallery-image {
-    width: 100%;
-    height: auto;
-    cursor: pointer;
-}
-/* Estilos de la galería horizontal */
-.horizontal-photo-gallery {
-    display: flex;               /* Usa flexbox para alinear las imágenes en una fila */
-    overflow-x: visible;            /* Permite el desplazamiento horizontal */
-    gap: 10px;                   /* Espacio entre imágenes */
-    padding: 10px;               /* Agrega algo de espacio alrededor de la galería */
-    scroll-snap-type: x mandatory; /* Hace que las imágenes se desplacen suavemente */
-    -webkit-overflow-scrolling: touch; /* Añade desplazamiento suave en dispositivos móviles */
-}
+    .mobile-menu {
+        display: none; /* Mantener oculto el menú desplegable */
+    }
 
-.horizontal-gallery-image {
-    flex: 0 0 auto;              /* Asegura que las imágenes mantengan su tamaño y no se reduzcan */
-    width: 300px;                /* Ajusta el tamaño de las imágenes */
-    height: auto;                /* Mantiene la proporción de las imágenes */
-    cursor: pointer;
-    scroll-snap-align: start;    /* Alinea cada imagen al inicio al hacer scroll */
-    cursor: pointer; /* Cambia el cursor a un puntero al pasar sobre las imágenes */
-    transition: transform 0.2s ease-in-out; /* Agrega una transición suave al pasar el ratón sobre las imágenes */
-}
-.photo-g3 {
-    display: flex;               /* Usa flexbox para alinear las imágenes en una fila */
-    overflow-x: visible;            /* Permite el desplazamiento horizontal */
-    gap: 10px;                   /* Espacio entre imágenes */
-    padding: 10px;               /* Agrega algo de espacio alrededor de la galería */
-    scroll-snap-type: x mandatory; /* Hace que las imágenes se desplacen suavemente */
-    -webkit-overflow-scrolling: touch; /* Añade desplazamiento suave en dispositivos móviles */
-}
-
-.g3-image {
-    flex: 0 0 auto;              /* Asegura que las imágenes mantengan su tamaño y no se reduzcan */
-    width: 300px;                /* Ajusta el tamaño de las imágenes */
-    height: auto;                /* Mantiene la proporción de las imágenes */
-    cursor: pointer;
-    scroll-snap-align: start;    /* Alinea cada imagen al inicio al hacer scroll */
-    cursor: pointer; /* Cambia el cursor a un puntero al pasar sobre las imágenes */
-    transition: transform 0.2s ease-in-out; /* Agrega una transición suave al pasar el ratón sobre las imágenes */
-}
-
-
-/* Estilos de la galería */
-.photo-gallery {
-    display: flex;
-    overflow-x: visible; /* Agrega una barra de desplazamiento horizontal */
-    scroll-snap-type: x mandatory; /* Hace que las imágenes se desplacen suavemente */
-    -webkit-overflow-scrolling: touch; /* Añade desplazamiento suave en dispositivos móviles */
-    padding: 10px; /* Espaciado alrededor de las imágenes */
-    width: calc(100% + 20px); /* Ancho total de la galería incluyendo el espaciado */
-}
-
-.gallery-image {
-    flex: 0 0 auto;
-    width: 200px; /* Ancho fijo de las imágenes */
-    height: auto;
-    scroll-snap-align: start; /* Alinea las imágenes con el inicio del contenedor */
-    margin-right: 10px; /* Espacio entre las imágenes */
-    cursor: pointer; /* Cambia el cursor a un puntero al pasar sobre las imágenes */
-    transition: transform 0.2s ease-in-out; /* Agrega una transición suave al pasar el ratón sobre las imágenes */
-}
-
-.gallery-image:hover {
-    transform: scale(1.1); /* Hace que la imagen se agrande ligeramente al pasar el ratón sobre ella */
-}
-.g3-image:hover {
-    transform: scale(1.1); /* Hace que la imagen se agrande ligeramente al pasar el ratón sobre ella */
-}
-.horizontal-gallery-image:hover {
-    transform: scale(1.1); /* Hace que la imagen se agrande ligeramente al pasar el ratón sobre ella */
-}
-/* Estilos de la flecha */
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-}
-
-/* Posiciona la flecha izquierda */
-.prev {
-    left: 0;
-}
-
-/* Posiciona la flecha derecha */
-.next {
-    right: 0;
+    .mobile-menu.active {
+        display: flex; /* Mostrar el menú móvil cuando se activa */
+    }
 }

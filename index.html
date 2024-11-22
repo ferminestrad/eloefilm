@@ -6,92 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eloefilm</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Estilos para el encabezado */
-        header {
-            background-color: rgb(0, 0, 0);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            position: relative;
-        }
-
-        /* Logotipo */
-        .logo {
-            width: 200px;
-            height: auto;
-        }
-
-        /* Navegación */
-        nav {
-            display: flex;
-            align-items: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        /* Menú hamburguesa (oculto en pantallas grandes) */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .menu-toggle div {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            margin: 4px 0;
-        }
-
-        /* Menú desplegable (oculto por defecto) */
-        .mobile-menu {
-            display: none;
-            position: absolute;
-            top: 70px;
-            right: 20px;
-            background-color: black;
-            padding: 10px;
-            border-radius: 8px;
-            flex-direction: column;
-        }
-
-        .mobile-menu a {
-            margin: 5px 0;
-        }
-
-        /* Estilo responsivo */
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .mobile-menu {
-                display: none;
-            }
-
-            .mobile-menu.active {
-                display: flex;
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
+        <!-- Logotipo -->
         <a href="index.html">
             <img src="images/fec.png" alt="Logotipo" class="logo">
         </a>
 
-        <nav>
+        <!-- Menú de navegación (escritorio) -->
+        <nav class="desktop-menu">
+            <a href="index.html">Portfolio</a>
             <a href="contacto.html">+info & contacto</a>
         </nav>
 
@@ -104,22 +29,46 @@
 
         <!-- Menú desplegable móvil -->
         <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html">Portfolio</a>
             <a href="contacto.html">+info & contacto</a>
         </div>
     </header>
-
-    <section id="horizontal-gallery">
-        <div class="horizontal-photo-gallery">
-            <img src="images/F1.jpg" alt="Foto 6" class="horizontal-gallery-image" onclick="openModal('modal6')">
-            <img src="images/F2.jpg" alt="Foto 7" class="horizontal-gallery-image" onclick="openModal('modal7')">
-            <img src="images/F3.jpg" alt="Foto 8" class="horizontal-gallery-image" onclick="openModal('modal8')">
-            <img src="images/F4.jpg" alt="Foto 9" class="horizontal-gallery-image" onclick="openModal('modal9')">
-            <img src="images/L.jpg" alt="Foto 10" class="horizontal-gallery-image" onclick="openModal('modal10')">
-            <img src="images/F.jpg" alt="Foto 10" class="horizontal-gallery-image" onclick="openModal('modal11')">
-        </div>
-    </section>
-
-    <!-- Contenido adicional -->
+    <div class="gallery">
+        <img src="images/A-1.jpg" alt="Foto 1">
+        <img src="images/A-2.jpg" alt="Foto 2">
+        <img src="images/A-3.jpg" alt="Foto 3">
+        <img src="images/A-4.jpg" alt="Foto 4">
+        <img src="images/A-5.jpg" alt="Foto 5">
+        <img src="images/A-6.jpg" alt="Foto 6">
+        <img src="images/A-7.jpg" alt="Foto 7">
+        <img src="images/A-8.jpg" alt="Foto 8">
+        <img src="images/A-9.jpg" alt="Foto 9">
+        <img src="images/A-10.jpg" alt="Foto 10">
+        <img src="images/A-11.jpg" alt="Foto 11">
+        <img src="images/A-12.jpg" alt="Foto 12">
+        <img src="images/A-13.jpg" alt="Foto 13">
+        <img src="images/A-14.jpg" alt="Foto 14">
+        <img src="images/A-15.jpg" alt="Foto 15">
+        <img src="images/A-16.jpg" alt="Foto 16">
+        <img src="images/A-17.jpg" alt="Foto 17">
+        <img src="images/A-18.jpg" alt="Foto 18">
+        <img src="images/A-19.jpg" alt="Foto 19">
+        <img src="images/A-20.jpg" alt="Foto 20">
+        <img src="images/A-21.jpg" alt="Foto 21">
+        <img src="images/A-22.jpg" alt="Foto 22">
+        <img src="images/A-23.jpg" alt="Foto 23">
+        <img src="images/A-24.jpg" alt="Foto 24">
+        <img src="images/A-25.jpg" alt="Foto 25">
+        <img src="images/A-26.jpg" alt="Foto 26">
+        <img src="images/A-27.jpg" alt="Foto 27">
+        <img src="images/A-28.jpg" alt="Foto 28">
+        <img src="images/A-29.jpg" alt="Foto 29">
+        <img src="images/A-30.jpg" alt="Foto 30">
+        <img src="images/A-31.jpg" alt="Foto 31">
+        <img src="images/A-32.jpg" alt="Foto 32">
+    </div>
+    
+    
 
     <script>
         // Lógica para el menú hamburguesa
