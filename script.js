@@ -1,26 +1,21 @@
-function openModal(modalId) {
-    document.getElementById(modalId).style.display = "block";
+function openModal(image) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const caption = document.getElementById("caption");
+
+    modal.style.display = "block";
+    modalImg.src = image.src;
+    caption.innerHTML = image.alt;
 }
 
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = "none";
+function closeModal() {
+    const modal = document.getElementById("imageModal");
+    modal.style.display = "none";
 }
+const modal = document.getElementById("imageModal");
 
-function nextModal(currentModalId, nextModalId) {
-    closeModal(currentModalId);
-    openModal(nextModalId);
-}
-
-function prevModal(currentModalId, prevModalId) {
-    closeModal(currentModalId);
-    openModal(prevModalId);
-}
-
-document.addEventListener('keydown', function(event) {
-    if (event.key === "Escape") {
-        var modals = document.getElementsByClassName('modal');
-        for (var i = 0; i < modals.length; i++) {
-            modals[i].style.display = "none";
-        }
+modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+        closeModal(); // Cierra el modal si haces clic fuera de la imagen
     }
 });

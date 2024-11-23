@@ -62,7 +62,7 @@ header nav a:hover {
 
 /* Estilo para los enlaces en la sección de contacto */
 .contact-container a {
-    color: rgb(0, 0, 0); /* Color blanco */
+    color: rgb(0, 0, 0); 
     text-decoration: none;
 }
 
