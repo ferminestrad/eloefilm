@@ -51,7 +51,7 @@ header nav a:hover {
 }
 
 .about-section, .contact-section {
-    text-align: left; /* Alineación del texto a la izquierda */
+    text-align: justify; /* Alineación del texto a la izquierda */
     max-width: 300px; /* Limita el ancho de las secciones */
 }
 
