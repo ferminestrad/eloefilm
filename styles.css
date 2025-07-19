@@ -1,7 +1,7 @@
 /* Estilos generales */
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: rgb(255, 253, 253);
+    background-color: rgb(0, 0, 0);
     color: rgb(0, 0, 0);
     margin: 0;
     padding: 0;
@@ -17,8 +17,104 @@ header {
     padding: 20px;
 }
 
+
+/* Hero */
+.hero {
+  height: 100%;
+  display: flex;
+  align-items: auto;
+  justify-content: auto;
+}
+.hero-text {
+  background: rgba(0,0,0,0.6);
+  padding: 1em;
+  text-align: center;
+  color: var(--white);
+}
+.hero-text h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+.hero-text p { font-size: 1.2rem; }
+.gallery-section { padding: 4rem 2rem; }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:0;
+  width: 100%;         /* ahora ocupa todo el viewport width */
+  justify-items: auto;  /* centra los items horizontalmente */
+  align-items: 0;          /* sin márgenes laterales */
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;         /* ocupa todo el alto del contenedor */
+  object-fit: cover;    /* recorta el exceso manteniendo proporción */
+}
+.gallery-item img:hover {
+  transform: scale(1.1  );
+}
+/* Si la imagen es horizontal, ocupa ambas columnas */
+.gallery-item.horizontal {
+  grid-column: 1 / -1;  /* ya lo tenías para el ancho */
+  grid-row: span 2;     /* o el número de “filas” que quieras cubrir */
+}
+/* Opcional: en móviles usamos 1 sola columna */
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Lightbox */
+.lightbox {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox-img { max-width: 90%; max-height: 80vh; }
+.lightbox-caption { color: var(--white); margin-top: 1rem; text-align: center; }
+.nav {
+  position: absolute;
+  top: 50%;
+  color: var(--white);
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+.prev { left: 2rem; }
+.next { right: 2rem; }
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 2.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-text h1 { font-size: 2.5rem; }
+  .hero-text p { font-size: 1rem; }
+  .info-section { flex-direction: column; align-items: center; }
+}
+header {
+    background-color: #000; /* Fondo negro */
+    display: flex; /* Utiliza flexbox */
+    justify-content: space-between; /* Alinea los elementos al inicio y al final */
+    align-items: center; /* Centra verticalmente los elementos */
+    padding: 20px;
+}
+
 .logo {
-    width: 200px;
+    width: 250px;
     height: auto;
 }
 
@@ -93,65 +189,7 @@ section {
         display: flex; /* Mostrar el menú móvil cuando se activa */
     }
 }
-/* Media queries para dispositivos móviles */
-@media (max-width: 768px) {
-    .gallery img {
-        width: 100px; /* Tamaño más pequeño para móviles */
-    }
 
-    .modal-content {
-        max-width: 90%; /* Ajustar el tamaño de la imagen al ancho del dispositivo */
-        max-height: 90%; /* Ajustar la altura para pantallas pequeñas */
-    }
-
-    .close {
-        font-size: 25px; /* Reducir tamaño del botón de cierre */
-        top: 10px;
-        right: 20px;
-    }
-
-    #caption {
-        font-size: 16px; /* Texto más pequeño para móviles */
-    }
-}
-
-@media (max-width: 480px) {
-    .gallery img {
-        width: 80px; /* Aún más pequeño para pantallas muy pequeñas */
-    }
-
-    #caption {
-        font-size: 14px; /* Texto más pequeño aún */
-    }
-}
-
-.gallery {
-    justify-content: space-around;
-    align-items: center;
-    display: grid;
-    grid-template-columns: 33.3% 33.3% 33.3%;
-    grid-template-rows: auto;
-    gap: 0.1em;
-    margin: auto;
-}
-
-.gallery div:hover{
-    background: aliceblue;
-}
-
-.gallery img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    margin: 2px;
-}
-
-.gallery img:hover {
-    transform: scale(1.1);
-}
 
 /* Estilos del modal */
 .modal {
